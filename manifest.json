@@ -1,0 +1,13 @@
+{
+    "name": "Pega Chrome Tools",
+    "description": "Chrome extension for Pega development",
+    "version": "0.1.0",
+    "manifest_version": 3,
+    "content_scripts": [
+        {
+          "matches": ["*://*/prweb/*"],
+          "js": ["./dist/main.js"]
+        }
+    ],
+    "permissions": ["storage"]
+}
