@@ -22,7 +22,7 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js'],
   },
   output: {
-    filename: 'main.js',
+    filename: 'content-script.js',
     path: path.resolve(__dirname, 'dist'),
   },
   devServer: {

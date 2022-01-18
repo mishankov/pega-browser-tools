@@ -6,7 +6,7 @@
     "content_scripts": [
         {
           "matches": ["*://*/prweb/*"],
-          "js": ["./dist/main.js"]
+          "js": ["./dist/content-script.js"]
         }
     ],
     "permissions": ["storage"]
