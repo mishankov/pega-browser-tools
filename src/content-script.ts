@@ -12,15 +12,15 @@ async function addCopyRuleKeyIcons() {
         if ( ruleIframeSrc.includes("action=openRuleSpecific")) {
             ruleKeyParameter = "&openHandle=";
         }
-        
+
         let ruleKey = "";
         try {
-            ruleKey = ruleIframe.getAttribute("src").split(ruleKeyParameter)[1].split("&")[0].replaceAll("%20", " ").replaceAll("%23", "#");
+            ruleKey = ruleIframe.getAttribute("src").split(ruleKeyParameter)[1].split("&")[0].replace(/%20/g, " ").replace(/%23/g, "#");
         } catch {
             return;
         }
         
-        let copyRuleElementId = "pct_copy_" + ruleKey.replaceAll(" ", "_");
+        let copyRuleElementId = "pct_copy_" + ruleKey.replace(/ /g, "_");
         let ruleDocument = ruleIframe.contentWindow.document;
 
         if (ruleDocument.getElementById(copyRuleElementId) === null) {
