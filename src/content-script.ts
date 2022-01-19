@@ -13,7 +13,13 @@ async function addCopyRuleKeyIcons() {
             ruleKeyParameter = "&openHandle=";
         }
         
-        let ruleKey = ruleIframe.getAttribute("src").split(ruleKeyParameter)[1].split("&")[0].replaceAll("%20", " ").replaceAll("%23", "#");
+        let ruleKey = "";
+        try {
+            ruleKey = ruleIframe.getAttribute("src").split(ruleKeyParameter)[1].split("&")[0].replaceAll("%20", " ").replaceAll("%23", "#");
+        } catch {
+            return;
+        }
+        
         let copyRuleElementId = "pct_copy_" + ruleKey.replaceAll(" ", "_");
         let ruleDocument = ruleIframe.contentWindow.document;
 
