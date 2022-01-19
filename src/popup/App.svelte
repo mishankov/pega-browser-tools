@@ -10,6 +10,7 @@ function saveConfig() {
     }
 
     chrome.storage.local.set({ config });
+    window.close();
 }
 
 let copyRuleKeyEnabled: boolean;
