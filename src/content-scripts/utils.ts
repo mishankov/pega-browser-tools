@@ -7,11 +7,15 @@ function copyToClipboard(textContent: string) {
     target.style.position = "fixed";
     target.textContent = textContent;
     document.body.appendChild(target);
-    
+
     target.select();
     document.execCommand("copy");
-    
+
     document.body.removeChild(target);
 }
 
-export { sleep, copyToClipboard }
+function getElementByXpath(path: string) {
+    return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}
+
+export { sleep, copyToClipboard, getElementByXpath }

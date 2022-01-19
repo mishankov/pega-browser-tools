@@ -1,4 +1,4 @@
-import { sleep, copyToClipboard } from "./utils"
+import { copyToClipboard } from "./utils"
 
 async function addCopyRuleKeyIcons() {
     let ruleIframe = <HTMLIFrameElement> document.querySelector("#PEGA_TABBED0 > div.yui-content.contents.tabContent > div.iframe-wrapper[aria-hidden=false] > iframe");
@@ -61,15 +61,4 @@ async function addMiddleMouseTabClose() {
     }
 }
 
-async function mainContentLoop() {
-    while (true) {
-        await sleep(1000);
-
-        addCopyRuleKeyIcons();
-        addMiddleMouseTabClose();
-    }
-}
-
-console.log("Pega Chrome Tools is here!")
-
-mainContentLoop();
+export { addCopyRuleKeyIcons, addMiddleMouseTabClose }
