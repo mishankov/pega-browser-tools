@@ -14,6 +14,7 @@ async function mainContentLoop() {
 
     while (true) {
         await sleep(1000);
+        config = (await chrome.storage.local.get("config")).config;
 
         if (document.title.indexOf("Dev Studio") != -1) {
             if (config.copyRuleKeyEnabled) addCopyRuleKeyIcons();

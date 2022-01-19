@@ -1,7 +1,7 @@
 <script lang="ts">
 import { Config } from "../common";
 
-import { FormGroup, Input, Button, Card, CardBody, CardHeader, CardTitle, CardSubtitle, Alert, Container } from "sveltestrap";
+import { FormGroup, Input, Button, Card, CardBody, CardHeader, CardTitle, CardSubtitle, Alert, Container, Tooltip } from "sveltestrap";
 
 function saveConfig() {
     let config: Config = {
@@ -40,17 +40,19 @@ chrome.storage.local.get("config", function(data) {
         <CardBody>
 
             <Alert color="success" isOpen={settingsSaved} toggle={() => (settingsSaved = false)}>
-                Settings saved. Reload page to apply
+                Settings saved
             </Alert>
 
             <CardSubtitle>Features</CardSubtitle>
 
             <FormGroup>
-                <Input type="checkbox" label="Copy rule pzInsKey" bind:checked={copyRuleKeyEnabled}/>
+                <Input id="copyRuleKeyEnabled" type="checkbox" label="Copy rule pzInsKey" bind:checked={copyRuleKeyEnabled}/>
+                <Tooltip target="copyRuleKeyEnabled" placement="top">Feature will be enabled or disabled in new Dev Studio tabs</Tooltip>
             </FormGroup>
         
             <FormGroup>
-                <Input type="checkbox" label="Close tab with middle click" bind:checked={closeTabWithMiddleClickEnabled}/>
+                <Input id="closeTabWithMiddleClickEnabled" type="checkbox" label="Close tab with middle click" bind:checked={closeTabWithMiddleClickEnabled}/>
+                <Tooltip target="closeTabWithMiddleClickEnabled" placement="top">Feature will be enabled or disabled on new Dev Studio tabs</Tooltip>
             </FormGroup>
         
             <FormGroup>
@@ -60,7 +62,8 @@ chrome.storage.local.get("config", function(data) {
             <CardSubtitle>Debug</CardSubtitle>
         
             <FormGroup>
-                <Input type="checkbox" label="Debug mode" bind:checked={debugModeEnabled}/>
+                <Input id="debugModeEnabled" type="checkbox" label="Debug mode" bind:checked={debugModeEnabled}/>
+                <Tooltip target="debugModeEnabled" placement="top">console.log() stuff for debug</Tooltip>
             </FormGroup>
         </CardBody>
 
