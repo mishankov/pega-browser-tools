@@ -1,6 +1,4 @@
 <script lang="ts">
-import { config } from "process";
-
 import { Config } from "../common";
 
 function saveConfig() {
