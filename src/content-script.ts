@@ -47,7 +47,6 @@ async function addMiddleMouseTabClose() {
         if (tab.getAttribute("title") !== "Home" && tab.getAttribute("pct-middle-click-close") !== "true") {
             tab.setAttribute("pct-middle-click-close", "true");
             tab.addEventListener('auxclick', event => {
-                console.log(event);
                 if ((event as MouseEvent).which == 2) {
                     (tab.querySelector('#close') as HTMLElement).click();
                 }
