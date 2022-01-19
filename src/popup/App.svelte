@@ -1,6 +1,8 @@
 <script lang="ts">
 import { Config } from "../common";
 
+import { FormGroup, Input, Button, Card, CardBody, CardHeader, CardTitle, CardSubtitle, Alert, Container } from "sveltestrap";
+
 function saveConfig() {
     let config: Config = {
         copyRuleKeyEnabled: copyRuleKeyEnabled,
@@ -9,14 +11,18 @@ function saveConfig() {
         debugModeEnabled: debugModeEnabled
     }
 
+    settingsSaved = true;
+
     chrome.storage.local.set({ config });
-    window.close();
+    // window.close();
 }
 
 let copyRuleKeyEnabled: boolean;
 let closeTabWithMiddleClickEnabled: boolean;
 let tracerSettingsRulesetSelectionEnabled: boolean;
 let debugModeEnabled: boolean;
+
+let settingsSaved = false;
 
 chrome.storage.local.get("config", function(data) {
     copyRuleKeyEnabled = data["config"].copyRuleKeyEnabled;
@@ -28,27 +34,40 @@ chrome.storage.local.get("config", function(data) {
 </script>
 
 <main>
-    <div>
-        <input type=checkbox name="copyRuleKeyEnabled" bind:checked={copyRuleKeyEnabled}>
-        <label for="copyRuleKeyEnabled"> Copy rule pzInsKey </label>
-    </div>
 
-    <div>
-        <input type=checkbox name="closeTabWithMiddleClickEnabled" bind:checked={closeTabWithMiddleClickEnabled}>
-        <label for="closeTabWithMiddleClickEnabled"> Close tab with middle click </label>
-    </div>
+    <Card>
+        <CardHeader> <CardTitle> Pega Chrome Tools settings </CardTitle> </CardHeader>
+        <CardBody>
 
-    <div>
-        <input type=checkbox name="tracerSettingsRulesetSelectionEnabled" bind:checked={tracerSettingsRulesetSelectionEnabled}>
-        <label for="tracerSettingsRulesetSelectionEnabled"> Tracer setting Pega ruleset selection </label>
-    </div>
+            <Alert color="success" isOpen={settingsSaved} toggle={() => (settingsSaved = false)}>
+                Settings saved. Reload page to apply
+            </Alert>
 
-    <div>
-        <input type=checkbox name="debugModeEnabled" bind:checked={debugModeEnabled}>
-        <label for="debugModeEnabled"> Debug mode </label>
-    </div>
+            <CardSubtitle>Features</CardSubtitle>
 
-    <button on:click={saveConfig}> Save settings </button>
+            <FormGroup>
+                <Input type="checkbox" label="Copy rule pzInsKey" bind:checked={copyRuleKeyEnabled}/>
+            </FormGroup>
+        
+            <FormGroup>
+                <Input type="checkbox" label="Close tab with middle click" bind:checked={closeTabWithMiddleClickEnabled}/>
+            </FormGroup>
+        
+            <FormGroup>
+                <Input type="checkbox" label="Tracer setting Pega ruleset selection" bind:checked={tracerSettingsRulesetSelectionEnabled}/>
+            </FormGroup>
+
+            <CardSubtitle>Debug</CardSubtitle>
+        
+            <FormGroup>
+                <Input type="checkbox" label="Debug mode" bind:checked={debugModeEnabled}/>
+            </FormGroup>
+        </CardBody>
+
+        <Container>
+            <Button style="margin-bottom: 10px" class="save-button" color="primary" on:click={saveConfig}>Save settings</Button>
+        </Container>
+    </Card>
 
 </main>
 
