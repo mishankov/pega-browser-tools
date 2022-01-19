@@ -1,10 +1,14 @@
 import { sleep } from "./utils";
 import { addCopyRuleKeyIcons, addMiddleMouseTabClose } from "./dev-studio";
-import { addDeselectPegaButton } from "./tracer-settings"
+import { addDeselectPegaButton } from "./tracer-settings";
+import { Config } from "../common";
 
 
 async function mainContentLoop() {
-    if (document.title.indexOf("Tracer Settings") != -1) {
+
+    let config: Config = (await chrome.storage.local.get("config")).config;
+
+    if (document.title.indexOf("Tracer Settings") != -1 && config.tracerSettingsRulesetSelectionEnabled) {
         addDeselectPegaButton();
     }
 
@@ -12,8 +16,8 @@ async function mainContentLoop() {
         await sleep(1000);
 
         if (document.title.indexOf("Dev Studio") != -1) {
-            addCopyRuleKeyIcons();
-            addMiddleMouseTabClose();
+            if (config.copyRuleKeyEnabled) addCopyRuleKeyIcons();
+            if (config.closeTabWithMiddleClickEnabled) addMiddleMouseTabClose();
         }
     }
 }

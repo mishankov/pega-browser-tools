@@ -1,6 +1,6 @@
 # Custom
-dist/*
-!dist/manifest.json
+dist/*.js
+dist/popup/bundle.*
 dist.zip
 
 # Logs
