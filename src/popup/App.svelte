@@ -11,9 +11,9 @@ function saveConfig() {
         debugModeEnabled: debugModeEnabled
     }
 
-    settingsSaved = true;
-
-    chrome.storage.local.set({ config });
+    chrome.storage.local.set({ config }, function() {
+        settingsSaved = true;
+    });
     // window.close();
 }
 
