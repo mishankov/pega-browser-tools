@@ -4,7 +4,7 @@ Set of tools to help Pega developers packed in Chrome extension
 
 Some code and ideas are stolen from [marcin-l/PegaDevTools](https://github.com/marcin-l/PegaDevTools) and [Virusmater/pega-deselect-tracer](https://github.com/Virusmater/pega-deselect-tracer)
 
-Google Chrome 88+ is required
+Working on Google Chrome 97+ is tested. 92 and below have some issues
 
 ## Features
 - Copy rule pzInsKey to clipboard
