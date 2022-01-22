@@ -11,5 +11,10 @@ Working on Google Chrome 97+ is tested. 92 and below have some issues
 - Close Dev Studio tabs with middle click
 - Deselect all Pega rulesets in Tracer settings
 
+## Installation
+
+- Download and unpack `pega-chrome-tools-x.x.x.zip` from [latest release](https://github.com/mishankov/pega-chrome-tools/releases/latest)
+- Follow a couple of easy steps from [here](https://developer.chrome.com/docs/extensions/mv3/getstarted/#unpacked)
+
 
 <a href="https://www.flaticon.com/free-icons/repair" title="repair icons">Repair icons from logo</a> created by Freepik - Flaticon
