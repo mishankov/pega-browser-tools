@@ -1,7 +1,7 @@
 {
     "name": "Pega Chrome Tools",
     "description": "Chrome extension for Pega development",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "manifest_version": 3,
     "background": {
         "service_worker": "background.js"
@@ -14,6 +14,18 @@
     ],
     "permissions": ["storage", "activeTab", "scripting"],
     "action": {
-        "default_popup": "popup/index.html"
+        "default_popup": "popup/index.html",
+        "default_icon": {
+            "16": "icon.png",
+            "32": "icon.png",
+            "48": "icon.png",
+            "128": "icon.png"
+          }
+    },
+    "icons": {
+      "16": "icon.png",
+      "32": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
     }
 }

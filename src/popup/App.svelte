@@ -59,12 +59,12 @@ chrome.storage.local.get("config", function(data) {
                 <Input type="checkbox" label="Tracer setting Pega ruleset selection" bind:checked={tracerSettingsRulesetSelectionEnabled}/>
             </FormGroup>
 
-            <CardSubtitle>Debug</CardSubtitle>
+            <!-- <CardSubtitle>Debug</CardSubtitle>
         
             <FormGroup>
                 <Input id="debugModeEnabled" type="checkbox" label="Debug mode" bind:checked={debugModeEnabled}/>
                 <Tooltip target="debugModeEnabled" placement="top">console.log() stuff for debug</Tooltip>
-            </FormGroup>
+            </FormGroup> -->
         </CardBody>
 
         <Container>
