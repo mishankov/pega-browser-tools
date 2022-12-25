@@ -1,11 +1,11 @@
 ![](images/chrome-pega-tools.png)
-[![Node.js CI](https://github.com/mishankov/pega-chrome-tools/actions/workflows/node.js.yml/badge.svg)](https://github.com/mishankov/pega-chrome-tools/actions/workflows/node.js.yml)
-# Pega Chrome Tools
-Set of tools to help Pega developers packed in Chrome extension
+[![Node.js CI](https://github.com/mishankov/pega-browser-tools/actions/workflows/node.js.yml/badge.svg)](https://github.com/mishankov/pega-browser-tools/actions/workflows/node.js.yml)
+# Pega Browser Tools
+Set of tools to help Pega developers packed in Chrome/Firefox extension
 
 Some code and ideas are stolen from [marcin-l/PegaDevTools](https://github.com/marcin-l/PegaDevTools) and [Virusmater/pega-deselect-tracer](https://github.com/Virusmater/pega-deselect-tracer)
 
-Working on Google Chrome 97+ is tested. 92 and below have some issues
+Working on Google Chrome 97+ and Firefox 108 is tested. Chrome 92 and below have some issues
 
 ## Features
 - Copy rule pzInsKey to clipboard
@@ -14,8 +14,8 @@ Working on Google Chrome 97+ is tested. 92 and below have some issues
 
 ## Installation
 
-- Download and unpack `pega-chrome-tools-x.x.x.zip` from [latest release](https://github.com/mishankov/pega-chrome-tools/releases/latest)
-- Follow a couple of easy steps from [here](https://developer.chrome.com/docs/extensions/mv3/getstarted/#unpacked)
+- Download and unpack `pega-browser-tools-[chrome|firefox].zip` from [latest release](https://github.com/mishankov/pega-browser-tools/releases/latest)
+- Follow a couple of easy steps from [here (Chrome)](https://developer.chrome.com/docs/extensions/mv3/getstarted/#unpacked) or [here (Firefox)](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension#installing)
 
 
 <a href="https://www.flaticon.com/free-icons/repair" title="repair icons">Repair icons from logo</a> created by Freepik - Flaticon

@@ -1,11 +1,12 @@
 import { sleep } from "./utils";
 import { addCopyRuleKeyIcons, addMiddleMouseTabClose } from "./dev-studio";
 import { addDeselectPegaButton } from "./tracer-settings";
-import { config, Config } from "../common";
+import { config, Config, browserNamespace } from "../common";
+
 
 async function getConfig() {
-    let storageData = (await chrome.storage.local.get("config"));
-    if (storageData === undefined) {
+    let storageData = (await browserNamespace.storage.local.get("config"));
+    if (storageData.config === undefined) {
         return config
     } else {
         return (storageData.config as Config)
@@ -31,6 +32,6 @@ async function mainContentLoop() {
     }
 }
 
-console.log("Pega Chrome Tools is here!")
+console.log("Pega Browser Tools is here!")
 
 mainContentLoop();

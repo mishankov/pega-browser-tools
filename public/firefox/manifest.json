@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "Pega Browser Tools",
+  "version": "2.0.0",
+  "description": "Browser extension for Pega development",
+  "icons": {
+            "16": "icon.png",
+            "32": "icon.png",
+            "48": "icon.png",
+            "128": "icon.png"
+          },
+  "content_scripts": [
+        {
+          "matches": ["*://*/prweb/*"],
+          "js": ["content-scripts.js"]
+        }
+    ],
+    "permissions": ["storage", "activeTab", "scripting"],
+    "browser_action": {
+      "default_popup": "popup/index.html",
+      "default_icon": {
+          "16": "icon.png",
+          "32": "icon.png",
+          "48": "icon.png",
+          "128": "icon.png"
+        }
+  }
+}

@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x, 19.x]
+        node-version: [ 19.x ]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -28,3 +28,17 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
+
+    - name: Upload Chrome extension
+      uses: actions/upload-artifact@v3
+      with:
+        name: pega-browser-tools-chrome
+        path: dist/chrome
+        retention-days: 5
+    
+    - name: Upload Firefox extension
+      uses: actions/upload-artifact@v3
+      with:
+        name: pega-browser-tools-firefox
+        path: dist/firefox
+        retention-days: 5

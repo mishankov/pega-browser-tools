@@ -1,5 +1,5 @@
 <script lang="ts">
-import { Config } from "../common";
+import { Config, browserNamespace } from "../common";
 
 import { FormGroup, Input, Button, Card, CardBody, CardHeader, CardTitle, CardSubtitle, Alert, Container, Tooltip } from "sveltestrap";
 
@@ -11,7 +11,7 @@ function saveConfig() {
         debugModeEnabled: debugModeEnabled
     }
 
-    chrome.storage.local.set({ config }, function() {
+    browserNamespace.storage.local.set({ config }, function() {
         settingsSaved = true;
     });
     // window.close();
@@ -24,7 +24,7 @@ let debugModeEnabled: boolean;
 
 let settingsSaved = false;
 
-chrome.storage.local.get("config", function(data) {
+browserNamespace.storage.local.get("config", function(data) {
     copyRuleKeyEnabled = data["config"].copyRuleKeyEnabled;
     closeTabWithMiddleClickEnabled = data.config.closeTabWithMiddleClickEnabled;
     tracerSettingsRulesetSelectionEnabled = data.config.tracerSettingsRulesetSelectionEnabled;
@@ -36,7 +36,7 @@ chrome.storage.local.get("config", function(data) {
 <main>
 
     <Card>
-        <CardHeader> <CardTitle> Pega Chrome Tools settings </CardTitle> </CardHeader>
+        <CardHeader> <CardTitle> Pega Browser Tools settings </CardTitle> </CardHeader>
         <CardBody>
 
             <Alert color="success" isOpen={settingsSaved} toggle={() => (settingsSaved = false)}>
