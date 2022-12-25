@@ -1,4 +1,5 @@
 ![](images/chrome-pega-tools.png)
+[![Node.js CI](https://github.com/mishankov/pega-chrome-tools/actions/workflows/node.js.yml/badge.svg)](https://github.com/mishankov/pega-chrome-tools/actions/workflows/node.js.yml)
 # Pega Chrome Tools
 Set of tools to help Pega developers packed in Chrome extension
 
