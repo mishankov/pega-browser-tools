@@ -12,4 +12,13 @@ let config = {
     debugModeEnabled: false
 }
 
-export { config, Config }
+const browserNamespace = function() {
+    try {
+        return browser;
+    } catch {
+        return chrome;
+    }
+}();
+
+
+export { config, Config, browserNamespace }

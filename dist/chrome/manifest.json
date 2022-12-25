@@ -1,7 +1,7 @@
 {
-    "name": "Pega Chrome Tools",
-    "description": "Chrome extension for Pega development",
-    "version": "1.0.0",
+    "name": "Pega Browser Tools",
+    "description": "Browser extension for Pega development",
+    "version": "2.0.0",
     "manifest_version": 3,
     "background": {
         "service_worker": "background.js"
