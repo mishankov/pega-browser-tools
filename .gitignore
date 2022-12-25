@@ -1,7 +1,5 @@
 # Custom
-dist/*/*.js
-dist/*/popup/bundle.*
-dist.zip
+dist
 
 # Logs
 logs
