@@ -28,3 +28,10 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
+
+    - name: Upload build results
+      uses: actions/upload-artifact@v3
+      with:
+        name: pega-browser-tools
+        path: dist/*
+        retention-days: 5
