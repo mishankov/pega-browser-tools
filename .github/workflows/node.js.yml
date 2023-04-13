@@ -54,6 +54,6 @@ jobs:
       - name: Upload crx
         uses: actions/upload-artifact@v3
         with:
-          name: pega-browser-tools-firefox
+          name: pega-browser-tools-crx
           path: dist/pega-browser-tools.crx
           retention-days: 5
