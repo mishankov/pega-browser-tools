@@ -5,40 +5,55 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [ 19.x ]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: [19.x]
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+      - run: npm ci
+      - run: npm run build --if-present
 
-    - name: Upload Chrome extension
-      uses: actions/upload-artifact@v3
-      with:
-        name: pega-browser-tools-chrome
-        path: dist/chrome
-        retention-days: 5
-    
-    - name: Upload Firefox extension
-      uses: actions/upload-artifact@v3
-      with:
-        name: pega-browser-tools-firefox
-        path: dist/firefox
-        retention-days: 5
+      - name: Create zip archive for Chrome extension
+        run: zip -r -q dist/pega-browser-tools-chrome.zip dist/chrome
+
+      - name: Create crx archive from zip archive
+        uses: cardinalby/webext-buildtools-chrome-crx-action@v2
+        with:
+          zipFilePath: "dist/pega-browser-tools-chrome.zip"
+          crxFilePath: "dist/pega-browser-tools.crx"
+          privateKey: ${{ secrets.CHROME_CRX_PRIVATE_KEY }}
+
+      - name: Upload Chrome extension
+        uses: actions/upload-artifact@v3
+        with:
+          name: pega-browser-tools-chrome
+          path: dist/chrome
+          retention-days: 5
+
+      - name: Upload Firefox extension
+        uses: actions/upload-artifact@v3
+        with:
+          name: pega-browser-tools-firefox
+          path: dist/firefox
+          retention-days: 5
+
+      - name: Upload crx
+        uses: actions/upload-artifact@v3
+        with:
+          name: pega-browser-tools-firefox
+          path: dist/pega-browser-tools.crx
+          retention-days: 5

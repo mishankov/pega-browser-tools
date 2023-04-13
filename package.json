@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c",
-    "watch": "rollup -c -w"
+    "watch": "rollup -c -w",
+    "gen-crx-key": "ssh-keygen -t rsa -m PEM"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.1.3",
@@ -25,14 +26,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mishankov/pega-chrome-tools.git"
+    "url": "git+https://github.com/mishankov/pega-browser-tools.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mishankov/pega-chrome-tools/issues"
+    "url": "https://github.com/mishankov/pega-browser-tools/issues"
   },
-  "homepage": "https://github.com/mishankov/pega-chrome-tools#readme",
+  "homepage": "https://github.com/mishankov/pega-browser-tools#readme",
   "dependencies": {
     "bootstrap": "^5.1.3",
     "sveltestrap": "^5.7.0"
