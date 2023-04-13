@@ -27,15 +27,8 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
 
-      - name: Create zip archive for Chrome extension
-        run: zip -r -q dist/pega-browser-tools-chrome.zip dist/chrome
-
-      - name: Create crx archive from zip archive
-        uses: cardinalby/webext-buildtools-chrome-crx-action@v2
-        with:
-          zipFilePath: "dist/pega-browser-tools-chrome.zip"
-          crxFilePath: "dist/pega-browser-tools.crx"
-          privateKey: ${{ secrets.CHROME_CRX_PRIVATE_KEY }}
+      - name: Create crx archive
+        run: npm run crx
 
       - name: Upload Chrome extension
         uses: actions/upload-artifact@v3
