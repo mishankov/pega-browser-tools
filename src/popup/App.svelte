@@ -1,7 +1,7 @@
 <script lang="ts">
 import { Config, browserNamespace } from "../common";
 
-import { FormGroup, Input, Button, Card, CardBody, CardHeader, CardTitle, CardSubtitle, Alert, Container, Tooltip } from "sveltestrap";
+import { FormGroup, Input, Button, Card, CardBody, CardHeader, CardTitle, CardSubtitle, Alert, Container, Tooltip } from "@sveltestrap/sveltestrap";
 
 function saveConfig() {
     let config: Config = {
