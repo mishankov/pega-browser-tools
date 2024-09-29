@@ -37,6 +37,7 @@
   "homepage": "https://github.com/mishankov/pega-browser-tools#readme",
   "dependencies": {
     "@sveltestrap/sveltestrap": "^6.2.7",
-    "bootstrap": "^5.3.3"
+    "bootstrap": "^5.3.3",
+    "rollup": "^4.22.4"
   }
 }
