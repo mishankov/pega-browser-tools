@@ -1,6 +1,6 @@
 import typescript from "@rollup/plugin-typescript";
 import svelte from 'rollup-plugin-svelte';
-import sveltePreprocess from 'svelte-preprocess';
+import {sveltePreprocess} from 'svelte-preprocess';
 import css from 'rollup-plugin-css-only';
 import resolve from '@rollup/plugin-node-resolve';
 import copy from 'rollup-plugin-copy'
